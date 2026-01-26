@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - SeanTech Vision</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a2e);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-box {
+      background: #16213e;
+      padding: 40px;
+      border-radius: 10px;
+      width: 320px;
+      text-align: center;
+    }
+    h1 {
+      color: #00f5d4;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+    }
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #00f5d4;
+      color: #0f0f0f;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1rem;
+    }
+    .btn:hover {
+      background: #ff4d6d;
+      color: #fff;
+    }
+    .toggle-link {
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+    .toggle-link a {
+      color: #00f5d4;
+      text-decoration: none;
+    }
+    .toggle-link a:hover {
+      color: #ff4d6d;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h1>Login</h1>
+    <form>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button class="btn">Login</button>
+    </form>
+    <div class="toggle-link">
+      Don’t have an account? <a href="signup.html">Sign up</a>
+    </div>
+  </div>
+</body>
+</html>
