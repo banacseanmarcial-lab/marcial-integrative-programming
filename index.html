@@ -23,9 +23,45 @@
       z-index: 1000;
     }
     nav h2 { color: #00f5d4; margin: 0; }
-    nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
-    nav ul li a { color: #fff; text-decoration: none; transition: 0.3s; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+      transition: all 0.3s ease-in-out;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
     nav ul li a:hover { color: #ff4d6d; }
+
+    /* Hamburger menu styling */
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      color: #00f5d4;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    @media (max-width: 768px) {
+      .hamburger { display: block; }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      nav ul.show { display: flex; }
+      nav ul li { margin: 10px 0; }
+    }
 
     header {
       text-align: center;
@@ -59,7 +95,13 @@
     section h2 { color: #ff4d6d; margin-bottom: 20px; font-size: 2rem; }
     section p { max-width: 700px; margin: auto; line-height: 1.6; }
 
-    .features, .team { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
+    .features, .team {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
     .feature, .member {
       background: #16213e;
       padding: 20px;
@@ -73,8 +115,18 @@
     .member h4 { margin: 10px 0; color: #00f5d4; }
     .member p { font-size: 0.9rem; color: #ccc; }
 
-    .contact form { max-width: 400px; margin: auto; display: flex; flex-direction: column; gap: 15px; }
-    .contact input, .contact textarea { padding: 10px; border-radius: 5px; border: none; }
+    .contact form {
+      max-width: 400px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .contact input, .contact textarea {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+    }
     .contact button {
       padding: 12px;
       background: #00f5d4;
@@ -85,24 +137,17 @@
     }
     .contact button:hover { background: #ff4d6d; color: #fff; }
 
-    footer { text-align: center; padding: 20px; background: #111; color: #aaa; font-size: 0.9rem; }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <h2>SeanTech Vision</h2>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#team">Team</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <!-- Direct links to login/signup pages -->
-      <li><a href="login.html">Login</a></li>
-      <li><a href="signup.html">Sign Up</a></li>
-    </ul>
-  </nav>
+  
 
   <!-- Hero Section -->
   <header id="home">
@@ -115,9 +160,9 @@
   <section id="about">
     <h2>About Us</h2>
     <p>
-      SeanTech Vision is a conceptual space for creative thinkers, developers, and innovators.  
-      Our mission is to inspire futuristic ideas and showcase cutting-edge design concepts  
-      that push the boundaries of imagination. We believe in merging technology and art  
+      SeanTech Vision is a conceptual space for creative thinkers, developers, and innovators.
+      Our mission is to inspire futuristic ideas and showcase cutting-edge design concepts
+      that push the boundaries of imagination. We believe in merging technology and art
       to create experiences that redefine tomorrow.
     </p>
   </section>
@@ -169,5 +214,24 @@
 
   <!-- Footer -->
   <footer>© 2026 SeanTech Vision. All rights reserved.</footer>
+
+  <!-- JavaScript for hamburger toggle -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+
+      // Close menu when a link is clicked
+      navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("show");
+        });
+      });
+    });
+  </script>
 </body>
 </html>
