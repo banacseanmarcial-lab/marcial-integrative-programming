@@ -2,37 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile - SeanTech Vision</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Navigation Bar (Same as Home Page) -->
   <nav>
-  <h2>SeanTech Vision</h2>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="login.html">Logout</a></li>
-    <li><a href="signup.html">Sign Up</a></li> <!-- New link -->
-  </ul>
-</nav>
+    <h2>SeanTech Vision</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="settings.html">Settings</a></li>
+    </ul>
+  </nav>
 
+  <!-- Profile Content -->
+  <div class="container">
+    
+    <!-- Profile Card -->
+    <section class="profile-card">
+      <img src="https://copilot.microsoft.com/th/id/BCO.feec68a7-5a7e-437b-a665-4d77c6ad4a41.png" 
+           alt="Profile Avatar" 
+           class="avatar">
+      <h2>Sean Banac</h2>
+      <p class="email">banacsean@gmail.com</p>
+      <p class="address">📍 Tayong Occ. Loay, Bohol</p>
+    </section>
 
-  <section class="profile-card">
-    <img src="https://copilot.microsoft.com/th/id/BCO.feec68a7-5a7e-437b-a665-4d77c6ad4a41.png" 
-     alt="Profile Avatar" 
-     style="width:120px;border-radius:50%;">
-    <h2>Sean Banac</h2>
-    <p>Email: banacsean@.com</p>
-    <p>Address:Tayong Occ. Loay,Bohol</p>
-  </section>
+    <!-- About Section -->
+    <section class="info">
+      <h3>About Me</h3>
+      <p>I am a student learning web development. This is my profile page UI.</p>
+    </section>
 
-  <section class="info">
-    <section> <a class="cta-btn" href="signup.html">Go to Sign Up</a> </section>
-    <h3>About Me</h3>
-    <p>I am a student learning web development. This is my profile page UI.</p>
-  </section>
+    <!-- Action Buttons -->
+    <div class="actions">
+      <a href="settings.html" class="cta-btn primary">Go to Settings</a>
+      <a href="signup.html" class="cta-btn secondary">Go to Sign Up</a>
+    </div>
 
-  <section>
-    <a class="cta-btn" href="settings.html">Go to Settings</a>
-  </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>© 2026 SeanTech Vision. All rights reserved.</footer>
+
 </body>
 </html>
