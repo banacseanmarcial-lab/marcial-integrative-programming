@@ -300,3 +300,133 @@ footer {
     padding: 30px;
   }
 }
+/* Logout Page Styles */
+.logout-box {
+  background: #16213e;
+  padding: 40px;
+  border-radius: 10px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.logout-box h1 {
+  color: #ff4d6d; /* Red color for logout */
+  margin-bottom: 20px;
+}
+
+.logout-box p {
+  color: #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.logout-box .btn {
+  width: 100%;
+  padding: 12px;
+  background: #ff4d6d;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.logout-box .btn:hover {
+  background: #00f5d4;
+  color: #0f0f0f;
+}
+
+.toggle-link {
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.toggle-link a {
+  color: #00f5d4;
+  text-decoration: none;
+}
+
+.toggle-link a:hover {
+  color: #ff4d6d;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .logout-box {
+    width: 90%;
+    padding: 30px;
+  }
+}
+/* Form Validation Styles */
+.error-message {
+  color: #ff4d6d;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  text-align: left;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid #00f5d4;
+}
+
+input.error {
+  border: 2px solid #ff4d6d;
+}
+
+input.success {
+  border: 2px solid #00f5d4;
+}
+
+/* Settings Box Styles */
+.settings-box {
+  background: #16213e;
+  padding: 40px;
+  border-radius: 10px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.settings-box h1 {
+  color: #00f5d4;
+  margin-bottom: 20px;
+}
+
+.settings-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: none;
+  background: #222;
+  color: #fff;
+}
+
+.settings-box .btn {
+  width: 100%;
+  padding: 12px;
+  background: #00f5d4;
+  color: #0f0f0f;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.settings-box .btn:hover {
+  background: #ff4d6d;
+  color: #fff;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .login-box, .signup-box, .settings-box {
+    width: 90%;
+    padding: 30px;
+  }
+}

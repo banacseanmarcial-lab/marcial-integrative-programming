@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - SeanTech Vision</title>
+  <title>Logout - SeanTech Vision</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,21 +16,19 @@
       <li><a href="login.html">Login</a></li>
       <li><a href="profile.html">Profile</a></li>
       <li><a href="settings.html">Settings</a></li>
-      <li><a href="logout.html">Logout</a></li>
     </ul>
   </nav>
 
-  <!-- Login Form -->
+  <!-- Logout Confirmation -->
   <div class="container">
-    <div class="login-box">
-      <h1>Welcome Back</h1>
-      <form action="profile.html" method="get">
-        <input type="email" placeholder="Email" required>
-        <input type="password" placeholder="Password" required>
-        <button class="btn" type="submit">Log In</button>
+    <div class="logout-box">
+      <h1>Logout</h1>
+      <p>Are you sure you want to logout?</p>
+      <form action="login.html" method="get">
+        <button class="btn" type="submit">Yes, Logout</button>
       </form>
       <div class="toggle-link">
-        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+        <p><a href="profile.html">Cancel and Stay Logged In</a></p>
       </div>
     </div>
   </div>
@@ -38,7 +36,5 @@
   <!-- Footer -->
   <footer>© 2026 SeanTech Vision. All rights reserved.</footer>
 
-  <!-- JavaScript -->
-  <script src="script.js"></script>
 </body>
 </html>
