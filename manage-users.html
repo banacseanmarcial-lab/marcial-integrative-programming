@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Users - SeanTech Vision</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <h2>SeanTech Vision</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="settings.html">Settings</a></li>
+      <li><a href="logout.html">Logout</a></li>
+      <li><a href="admin.html" style="color: #ff6b6b; font-weight: bold;">Admin</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1>Manage Users</h1>
+      <a href="admin.html" class="cta-btn" style="background-color: #555;">Back to Dashboard</a>
+    </header>
+
+    <section class="data-table-section">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Ana</td>
+            <td>ana@email.com</td>
+            <td>User</td>
+            <td><button class="btn-danger">Delete</button></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Juan</td>
+            <td>juan@email.com</td>
+            <td>User</td>
+            <td><button class="btn-danger">Delete</button></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Admin</td>
+            <td>admin@seantech.com</td>
+            <td>Admin</td>
+            <td><button class="btn-danger">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
