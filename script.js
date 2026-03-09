@@ -209,14 +209,13 @@ function validateSettings() {
 // EVENT LISTENERS
 // =========================================
 
-// Login Form
 document.addEventListener('DOMContentLoaded', function() {
+    // Login Form
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             if (validateLogin()) {
-                // Proceed with login logic
                 handleLogin(e);
             }
         });
@@ -228,7 +227,6 @@ document.addEventListener('DOMContentLoaded', function() {
         signupForm.addEventListener('submit', function(e) {
             e.preventDefault();
             if (validateSignup()) {
-                // Proceed with signup logic
                 handleSignup(e);
             }
         });
@@ -258,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // =========================================
-// EXISTING LOGIN LOGIC (Keep this)
+// LOGIN LOGIC (Single Function)
 // =========================================
 
 function handleLogin(event) {
@@ -273,6 +271,7 @@ function handleLogin(event) {
         localStorage.setItem('userName', 'Admin User');
         alert("Login Successful! Welcome Admin.");
         
+        // Redirect based on role
         if (localStorage.getItem('userRole') === 'admin') {
             window.location.href = "admin.html";
         } else {
@@ -288,6 +287,10 @@ function handleLogin(event) {
     }
 }
 
+// =========================================
+// SIGNUP LOGIC
+// =========================================
+
 function handleSignup(event) {
     event.preventDefault();
     
@@ -299,32 +302,4 @@ function handleSignup(event) {
     localStorage.setItem('userEmail', email);
     alert("Signup Successful! Please log in.");
     window.location.href = "login.html";
-}
-
-// ... existing code ...
-
-function handleLogin(event) {
-    event.preventDefault();
-    
-    // Get values from form
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    // Simple mock authentication logic
-    if (email === "admin@seantech.com" && password === "admin123") {
-        // Set user role to admin
-        localStorage.setItem('userRole', 'admin');
-        alert("Login Successful! Welcome Admin.");
-        
-        // --- NEW LOGIC START ---
-        // If role is admin, redirect to admin dashboard
-        if (localStorage.getItem('userRole') === 'admin') {
-            window.location.href = "admin.html";
-        } else {
-            window.location.href = "profile.html";
-        }
-        // --- NEW LOGIC END ---
-    } else {
-        alert("Invalid credentials");
-    }
 }
