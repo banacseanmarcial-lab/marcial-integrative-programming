@@ -54,7 +54,6 @@ async function searchCountry() {
 
 // FIXED API function with better error handling
 async function fetchCountry(name, signal) {
-    // Use SPECIFIC working endpoint
     const url = `https://restcountries.com/v3.1/name/${encodeURIComponent(name)}?fields=name,flags,capital,population,region,languages,currencies`;
     
     console.log('🌐 API URL:', url);
@@ -75,7 +74,7 @@ async function fetchCountry(name, signal) {
     return data;
 }
 
-// Display function (unchanged)
+// Display function with integrated save button
 function displayCountry(country) {
     const name = country.name.common;
     const flag = country.flags?.png || '';
@@ -110,10 +109,28 @@ function displayCountry(country) {
                 <div class="info-value">${currencies}</div>
             </div>
         </div>
+        <button class="save-btn" onclick="saveCountry('${name}', '${capital}', '${region}', '${flag}', '${population}')">
+            💾 Save Country
+        </button>
     `;
     
     result.style.display = 'block';
     countryInput.value = '';
+}
+
+// Save country to localStorage
+function saveCountry(name, capital, region, flag, population) {
+    let saved = JSON.parse(localStorage.getItem("savedCountries")) || [];
+
+    // Prevent duplicates
+    if (saved.some(item => item.name === name)) {
+        alert("Country already saved!");
+        return;
+    }
+
+    saved.push({ name, capital, region, flag, population });
+    localStorage.setItem("savedCountries", JSON.stringify(saved));
+    alert("✅ Saved successfully!");
 }
 
 // Helper functions

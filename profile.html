@@ -3,52 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile - SeanTech Vision</title>
+  <title>📊 Profile - World Explorer</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
-  <!-- Navigation Bar (Same as Home Page) -->
-  <nav>
-  <h2>SeanTech Vision</h2>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="login.html">Login</a></li>
-    <li><a href="profile.html">Profile</a></li>
-    <li><a href="settings.html">Settings</a></li>
-    <li><a href="logout.html">Logout</a></li>
-  </ul>
-</nav>
-
-  <!-- Profile Content -->
+<body class="profile-page">
   <div class="container">
-    
-    <!-- Profile Card -->
-    <section class="profile-card">
-      <img src="assets/profile boy.png " 
-           alt="Profile Avatar" 
-           class="avatar">
-      <h2>Sean Banac</h2>
-      <p class="email">banacsean@gmail.com</p>
-      <p class="address">📍 Tayong Occ. Loay, Bohol</p>
-    </section>
+    <header>
+      <h1>📊 Your Profile</h1>
+      <a href="index.html" class="back-btn">← Back to Explorer</a>
+    </header>
 
-    <!-- About Section -->
-    <section class="info">
-      <h3>About Me</h3>
-      <p>I am a student learning web development. This is my profile page UI.</p>
-    </section>
+    <div class="profile-card">
+      <div class="profile-avatar">👤</div>
+      <h2 id="username">Explorer User</h2>
+      <p id="email">banacsean@gmail.com</p>
+      
+      <div class="profile-stats">
+        <div class="stat">
+          <span id="savedCount">0</span>
+          <small>Saved Countries</small>
+        </div>
+        <div class="stat">
+          <span>100+</span>
+          <small>Countries Explored</small>
+        </div>
+      </div>
 
-    <!-- Action Buttons -->
-    <div class="actions">
-      <a href="settings.html" class="cta-btn primary">Go to Settings</a>
-      <a href="signup.html" class="cta-btn secondary">Go to Sign Up</a>
+      <div class="profile-actions">
+        <a href="saved.html" class="btn-primary">📂 View Saved</a>
+        <a href="api.html" class="btn-secondary">🌍 Explore More</a>
+        <a href="settings.html" class="btn-outline">⚙️ Settings</a>
+        <a href="logout.html" class="btn-danger">🚪 Logout</a>
+      </div>
     </div>
-
   </div>
 
-  <!-- Footer -->
-  <footer>© 2026 SeanTech Vision. All rights reserved.</footer>
-
+  <script>
+    // Update saved count
+    const saved = JSON.parse(localStorage.getItem('savedCountries')) || [];
+    document.getElementById('savedCount').textContent = saved.length;
+  </script>
 </body>
 </html>

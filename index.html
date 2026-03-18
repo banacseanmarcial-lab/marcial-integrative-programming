@@ -4,47 +4,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SeanTech Vision</title>
+  <title>🌍 World Explorer Hub</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
+  <meta name="description" content="🌍 World Explorer Hub - Discover 195+ countries with real-time REST Countries API data">
 </head>
 <body>
 
   <!-- Navigation Bar -->
- <nav>
-  <h2>SeanTech Vision</h2>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="login.html">Login</a></li>
-    <li><a href="profile.html">Profile</a></li>
-    <li><a href="settings.html">Settings</a></li>
-    <li><a href="logout.html">Logout</a></li>
-  </ul>
-</nav>
+  <nav class="navbar">
+    <div class="nav-brand">
+      <h2>🌍 World Explorer</h2>
+    </div>
+    <ul class="nav-menu">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#features" class="nav-link">Features</a></li>
+      <li><a href="api.html" class="nav-link active">🌍 Explorer</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
 
   <!-- Hero Section -->
-  <header id="home">
-    <h1>SeanTech Vision</h1>
-    <p>Shaping tomorrow with innovation, creativity, and futuristic design concepts.</p>
-    <a href="signup.html"><button class="cta-btn">Discover the Vision</button></a>
+  <header id="home" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">🌍 World Explorer Hub</h1>
+      <p class="hero-subtitle">
+        Discover <span class="highlight">195+ countries</span> in real-time with 
+        <span class="highlight">REST Countries API</span>. Save favorites, 
+        explore details, and journey around the globe.
+      </p>
+      <div class="hero-buttons">
+        <a href="api.html" class="cta-btn primary">🚀 Start Exploring</a>
+        <a href="#features" class="cta-btn secondary">See Features</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-shapes">
+        <div class="shape shape-1">🌎</div>
+        <div class="shape shape-2">🗺️</div>
+        <div class="shape shape-3">✈️</div>
+      </div>
+    </div>
   </header>
 
   <!-- About Section -->
-  <section id="about">
-    <h2>About Us</h2>
-    <p>
-      SeanTech Vision is a conceptual space for creative thinkers, developers, and innovators.
-      Our mission is to inspire futuristic ideas and showcase cutting-edge design concepts
-      that push the boundaries of imagination. We believe in merging technology and art
-      to create experiences that redefine tomorrow.
-    </p>
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">🌍 Your Global Adventure Awaits</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            Powered by <strong>REST Countries API</strong>, World Explorer lets you 
+            discover detailed information about every country - from capitals and 
+            populations to flags, languages, and currencies.
+          </p>
+          <p>
+            <strong>Save your favorites</strong> to localStorage, enjoy <strong>beautiful UI</strong>, 
+            and experience <strong>timeout-protected real-time data</strong>. Perfect for 
+            travelers, students, and geography enthusiasts.
+          </p>
+          <a href="api.html" class="about-link">Launch Explorer Now →</a>
+        </div>
+        <div class="about-visual">
+          <div class="tech-orbit">
+            <div class="orbit-ring"></div>
+            <div class="orbit-particle p1">🇺🇸</div>
+            <div class="orbit-particle p2">🇯🇵</div>
+            <div class="orbit-particle p3">🇧🇷</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Features Section -->
-  <section id="features">
-    <h2>Our Pillars</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>Innovation</h3>
-        <p>We explore groundbreaking technologies to inspire new possibilities.</p>
+  <section id="features" class="features">
+    <div class="container">
+      <h2 class="section-title">🌍 World Explorer Features</h2>
+      <p class="section-subtitle">Real-time data • Beautiful design • Smart features</p>
+      
+      <div class="features-grid">
+        <!-- API Explorer Feature -->
+        <div class="feature-card featured">
+          <div class="feature-icon">🌍</div>
+          <h3>Live Country Explorer</h3>
+          <p>Search 195+ countries with <strong>real-time REST API</strong>. View flags, capitals, populations, languages, currencies + more!</p>
+          <div class="feature-actions">
+            <a href="api.html" class="btn-primary">🚀 Launch Explorer</a>
+            <a href="saved.html" class="btn-secondary">📂 Saved Countries</a>
+          </div>
+        </div>
+
+        <!-- Other Features -->
+        <div class="feature-card">
+          <div class="feature-icon">💾</div>
+          <h3>Save Favorites</h3>
+          <p>Save countries to localStorage with duplicate protection. View your collection anytime!</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Smart Search</h3>
+          <p>5-second timeout protection, error handling, Enter key support, and smart suggestions.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>Beautiful UI</h3>
+          <p>Modern gradients, hover effects, responsive design, and flag fallbacks.</p>
+        </div>
       </div>
-      <div class
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Ready to Explore?</h2>
+      <p class="section-subtitle">Start your global journey today!</p>
+      <div class="contact-links">
+        <a href="api.html" class="contact-link primary">🌍 Launch Explorer</a>
+        <a href="login.html" class="contact-link">👤 Login / Signup</a>
+        <a href="saved.html" class="contact-link">📂 View Collection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>🌍 World Explorer Hub &copy; 2024. Powered by <strong>REST Countries API</strong></p>
+    </div>
+  </footer>
+
+</body>
+</html>
