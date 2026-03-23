@@ -3,45 +3,488 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📊 Profile - World Explorer</title>
-  <link rel="stylesheet" href="style.css">
+  <title>📊 Profile - 🌍 World Explorer Hub </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative;
+      padding: 2rem 1rem;
+    }
+
+    /* Floating Particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: float 20s infinite linear;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+
+    /* Navigation */
+    nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      animation: slideDown 0.6s ease-out;
+      transition: all 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    nav h2 {
+      color: #4f46e5;
+      font-size: 1.8rem;
+      font-weight: 700;
+      display: inline-block;
+      margin-right: 2rem;
+    }
+
+    nav h2 i { margin-right: 0.5rem; }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      float: right;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #64748b;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    nav a:hover {
+      color: #4f46e5;
+      background: rgba(79, 70, 229, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Container */
+    .container {
+      max-width: 800px;
+      width: 100%;
+      position: relative;
+      z-index: 10;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-size: 3.2rem;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-btn:hover {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Profile Card */
+    .profile-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(30px);
+      border-radius: 32px;
+      padding: 4rem 3rem;
+      text-align: center;
+      box-shadow: 0 35px 80px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      position: relative;
+      overflow: hidden;
+      animation: floatIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes floatIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .profile-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #4f46e5, #7c3aed, #ec4899);
+      border-radius: 32px 32px 0 0;
+    }
+
+    /* Profile Avatar */
+    .profile-avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      font-size: 4rem;
+      box-shadow: 0 20px 50px rgba(79, 70, 229, 0.4);
+      animation: avatarFloat 3s ease-in-out infinite;
+      border: 6px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    @keyframes avatarFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .profile-avatar:hover {
+      transform: scale(1.05);
+      box-shadow: 0 25px 60px rgba(79, 70, 229, 0.5);
+    }
+
+    /* Profile Info */
+    .profile-card h2 {
+      font-size: 2.5rem;
+      color: #1f2937;
+      margin-bottom: 0.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #1f2937, #374151);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .profile-card p {
+      font-size: 1.3rem;
+      color: #6b7280;
+      margin-bottom: 3rem;
+      font-weight: 500;
+    }
+
+    /* Profile Stats */
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(124, 58, 237, 0.05));
+      border-radius: 24px;
+      border: 1px solid rgba(79, 70, 229, 0.1);
+    }
+
+    .stat {
+      text-align: center;
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    .stat span {
+      display: block;
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #10b981, #059669);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat small {
+      color: #6b7280;
+      font-weight: 600;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Profile Actions */
+    .profile-actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .profile-actions a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 1.25rem 2rem;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      box-shadow: 0 15px 35px rgba(79, 70, 229, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(79, 70, 229, 0.6);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(16, 185, 129, 0.6);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-danger {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: white;
+      box-shadow: 0 15px 35px rgba(239, 68, 68, 0.4);
+    }
+
+    .btn-danger:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(239, 68, 68, 0.6);
+    }
+
+    /* Button shimmer effect */
+    .profile-actions a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.6s;
+    }
+
+    .profile-actions a:hover::before {
+      left: 100%;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 1rem;
+      }
+      
+      .profile-actions {
+        grid-template-columns: 1fr;
+      }
+      
+      .profile-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      
+      .profile-card {
+        padding: 3rem 2rem;
+        margin: 1rem;
+      }
+      
+      header h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav h2 {
+        font-size: 1.4rem;
+        margin-right: 1rem;
+      }
+      
+      nav ul {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+    }
+  </style>
 </head>
-<body class="profile-page">
+<body>
+  <!-- Floating Particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <h2><i class="fas fa-eye"></i> SeanTech Vision</h2>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+      <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+      <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+      <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+      <li><a href="admin.html" style="color: #ff6b6b; font-weight: bold;"><i class="fas fa-crown"></i> Admin</a></li>
+    </ul>
+  </nav>
+
   <div class="container">
     <header>
-      <h1>📊 Your Profile</h1>
-      <a href="index.html" class="back-btn">← Back to Explorer</a>
+      <h1><i class="fas fa-user-circle"></i> Your Profile</h1>
+      <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+        Back to Home
+      </a>
     </header>
 
     <div class="profile-card">
-      <div class="profile-avatar">👤</div>
-      <h2 id="username">Explorer User</h2>
+      <div class="profile-avatar">
+        <i class="fas fa-user"></i>
+      </div>
+      
+      <h2 id="username">Sean Banac</h2>
       <p id="email">banacsean@gmail.com</p>
       
       <div class="profile-stats">
         <div class="stat">
-          <span id="savedCount">0</span>
-          <small>Saved Countries</small>
+          <span id="savedCount">12</span>
+          <small>Saved Items</small>
         </div>
         <div class="stat">
-          <span>100+</span>
-          <small>Countries Explored</small>
+          <span>247</span>
+          <small>Total Actions</small>
+        </div>
+        <div class="stat">
+          <span>98.7%</span>
+          <small>Activity Rate</small>
+        </div>
+        <div class="stat">
+          <span>Member since 2024</span>
+          <small>Joined</small>
         </div>
       </div>
 
       <div class="profile-actions">
-        <a href="saved.html" class="btn-primary">📂 View Saved</a>
-        <a href="api.html" class="btn-secondary">🌍 Explore More</a>
-        <a href="settings.html" class="btn-outline">⚙️ Settings</a>
-        <a href="logout.html" class="btn-danger">🚪 Logout</a>
+        <a href="saved.html" class="btn-primary">
+          <i class="fas fa-folder-open"></i>
+          View Saved
+        </a>
+        <a href="dashboard.html" class="btn-secondary">
+          <i class="fas fa-chart-line"></i>
+          Dashboard
+        </a>
+        <a href="settings.html" class="btn-outline">
+          <i class="fas fa-cog"></i>
+          Settings
+        </a>
+        <a href="logout.html" class="btn-danger">
+          <i class="fas fa-sign-out-alt"></i>
+          Logout
+        </a>
       </div>
     </div>
   </div>
 
   <script>
-    // Update saved count
-    const saved = JSON.parse(localStorage.getItem('savedCountries')) || [];
-    document.getElementById('savedCount').textContent = saved.length;
-  </script>
-</body>
-</html>
+    // Generate floating particles
+    const particlesContainer = document.getElementById('particles');
+    const colors = ['rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0.2)', 'rgba(255, 255, 255, 0.3)'];
+
+    for (let i = 0; i < 50; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.width = `${Math.random() * 4 + 2}px`;
+      particle.style.height = particle.style.width;
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      particle.style.animationDuration = `${Math.random() * 20 + 10}s`;
+      particlesContainer.appendChild(particle);
+    }
